@@ -36,15 +36,16 @@ public class CustomerController {
 		this.service = service;
 	}
 
-	@GetMapping
-	public List<Customer> findAll() {
-		return service.findAll();
-	}
-
 	@GetMapping("/")
 	@ApiOperation(value = "Retorna a Lista de cadastros.")
 	public ResponseEntity<?> findPaging(Pageable peageble) {
 		return ResponseEntity.ok(service.list(peageble));
+	}
+	
+	@GetMapping
+	@ApiOperation(value = "Retorna a Lista de cadastros com o nome em ordem Asc.")
+	public List<Customer> findAll() {
+		return service.findAll();
 	}
 	
 	@GetMapping("/{id}")
