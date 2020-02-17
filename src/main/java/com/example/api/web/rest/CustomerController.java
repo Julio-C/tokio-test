@@ -36,7 +36,7 @@ public class CustomerController {
 		this.service = service;
 	}
 
-	@GetMapping("/")
+	@GetMapping
 	@ApiOperation(value = "Retorna a Lista de cadastros.")
 	public ResponseEntity<?> findPaging(Pageable peageble) {
 		return ResponseEntity.ok(service.list(peageble));
