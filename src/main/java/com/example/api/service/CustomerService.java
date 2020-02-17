@@ -37,9 +37,6 @@ public class CustomerService {
 	}
 
 	public ResponseEntity<Customer> save(Customer create) {
-		if(repository.findById(create.getId()).isPresent()){
-			return ResponseEntity.notFound().build();
-		}
 		return ResponseEntity.ok(repository.save(create));
 		
 	}
